@@ -1,3 +1,4 @@
 const clientRouter = require('./client.route');
+const scrapperRouter = require('./scrapping.route')
 
-module.exports = { clientRouter };
+module.exports = { clientRouter, scrapperRouter };
