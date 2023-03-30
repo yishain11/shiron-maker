@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
     const url = req.body.url;
     const page = await getHtml(url);
     console.log('page', page);
-    res.end();
+    res.end(JSON.stringify(page));
     return;
 });
 

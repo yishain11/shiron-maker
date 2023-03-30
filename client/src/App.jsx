@@ -13,7 +13,8 @@ function App() {
     const headers = new Headers();
     headers.append('content-type', 'application/json');
     fetch(SCRAPPING_URL, { headers, method: 'POST', credentials: 'include', body: JSON.stringify({ url: BASE_SHIRONET_URL + encodeURIComponent(searchTerm) }) })
-      .then()
+      .then(res => res.text())
+      .then(res => { console.log('page', res); })
       .catch();
 
   }
