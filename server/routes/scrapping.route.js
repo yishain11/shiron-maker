@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getHtml } = require('../utils/scrapping');
+const { scrapUtils, functionUtils } = require('../utils/utils.index')
 
 router.post('/', async (req, res) => {
     const url = req.body.url;
-    const page = await getHtml(url);
-    console.log('page', page);
+    let page = {};
+    while (functionUtils.checkObjectEmpty(page)) {
+        page = await scrapUtils.getHtml(url);
+        await functionUtils.sleep(10000);
+    }
     res.end(JSON.stringify(page));
     return;
 });

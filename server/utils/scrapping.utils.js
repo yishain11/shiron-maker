@@ -4,6 +4,7 @@ const linksToInclude = ['class="search_link_name_big"']
 
 function getHtml(url) {
     return fetch(url).then(res => res.text()).then(res => {
+        console.log('res', res)
         const parsedHtml = parseHtml(res);
         return parsedHtml;
     }).catch(err => { console.log('err', err); });
